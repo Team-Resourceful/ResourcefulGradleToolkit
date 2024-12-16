@@ -13,20 +13,21 @@ data class GitHubPom(
     val url: String
 ) : ResourcefulPublishingPom {
     override fun create(publication: MavenPublication) {
+        val data = this
         publication.pom {
-            this.name.set(name)
-            this.description.set(description)
-            this.url.set(url)
+            this.name.set(data.name)
+            this.description.set(data.description)
+            this.url.set(data.url)
 
             scm {
-                this.connection.set("git:$url.git")
-                this.developerConnection.set("git:$url.git")
-                this.url.set(url)
+                this.connection.set("git:$data.url.git")
+                this.developerConnection.set("git:$data.url.git")
+                this.url.set(data.url)
             }
 
             licenses {
                 license {
-                    this.name.set(license)
+                    this.name.set(data.license)
                 }
             }
         }
