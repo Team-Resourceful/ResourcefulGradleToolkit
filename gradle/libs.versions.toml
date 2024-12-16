@@ -1,0 +1,11 @@
+[versions]
+ktgradle = "2.0.0"
+archloom = "1.7-SNAPSHOT"
+archplugin = "3.4-SNAPSHOT"
+shadow = "7.1.2"
+
+[libraries]
+ktgradle = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "ktgradle" }
+archloom = { module = "dev.architectury.loom:dev.architectury.loom.gradle.plugin", version.ref = "archloom" }
+archplugin = { module = "architectury-plugin:architectury-plugin.gradle.plugin", version.ref = "archplugin" }
+shadow = { module = "com.github.johnrengelman.shadow:com.github.johnrengelman.shadow.gradle.plugin", version.ref = "shadow" }
