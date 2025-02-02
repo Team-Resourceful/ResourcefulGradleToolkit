@@ -68,6 +68,12 @@ tasks.processResources {
 
 when (platform) {
     Platform.COMMON -> {
+
+        val shade by configurations.creating {
+            isCanBeConsumed = false
+            isCanBeResolved = true
+        }
+
         configure<ArchitectPluginExtension> {
             val enabledPlatforms: String by rootProject
             common(enabledPlatforms.split(","))
@@ -82,6 +88,8 @@ when (platform) {
 
             "shadowJar"(ShadowJar::class) {
                 archiveClassifier.set(null)
+
+                configurations = listOf(shade)
             }
         }
     }
