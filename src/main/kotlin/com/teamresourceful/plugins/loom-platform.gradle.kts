@@ -4,13 +4,11 @@ import com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar
 import com.teamresourceful.utils.*
 import com.teamresourceful.utils.Platform
 import dev.architectury.plugin.ArchitectPluginExtension
-import gradle.kotlin.dsl.accessors._089421750eab8b3b217fdee3b8ddbbf9.*
-import gradle.kotlin.dsl.accessors._089421750eab8b3b217fdee3b8ddbbf9.base
-import gradle.kotlin.dsl.accessors._089421750eab8b3b217fdee3b8ddbbf9.jar
-import gradle.kotlin.dsl.accessors._089421750eab8b3b217fdee3b8ddbbf9.java
-import gradle.kotlin.dsl.accessors._089421750eab8b3b217fdee3b8ddbbf9.processResources
 import net.fabricmc.loom.api.LoomGradleExtensionAPI
 import net.fabricmc.loom.task.RemapJarTask
+import org.gradle.api.component.AdhocComponentWithVariants
+import org.gradle.api.component.SoftwareComponent
+import org.gradle.jvm.tasks.Jar
 import org.gradle.kotlin.dsl.*
 
 plugins {
