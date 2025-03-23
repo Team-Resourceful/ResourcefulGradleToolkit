@@ -4,7 +4,7 @@ plugins {
 }
 
 group = "com.teamresourceful"
-version = "1.0.3"
+version = "1.0.4"
 
 java.withSourcesJar()
 

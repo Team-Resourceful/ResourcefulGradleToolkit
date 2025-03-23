@@ -1,6 +1,6 @@
 [versions]
 ktgradle = "2.0.0"
-archloom = "1.7-SNAPSHOT"
+archloom = "1.9-SNAPSHOT"
 archplugin = "3.4-SNAPSHOT"
 shadow = "7.1.2"
 
