@@ -59,6 +59,7 @@ tasks.named<RemapJarTask>("remapJar") {
 
 tasks.processResources {
     duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+    inputs.property("version", project.version)
     filesMatching(listOf("META-INF/neoforge.mods.toml", "fabric.mod.json")) {
         expand("version" to project.version)
     }
