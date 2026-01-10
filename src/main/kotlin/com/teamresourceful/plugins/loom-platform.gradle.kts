@@ -15,7 +15,7 @@ plugins {
     java
     id("dev.architectury.loom")
     id("architectury-plugin")
-    id("com.github.johnrengelman.shadow") apply false
+    id("com.gradleup.shadow") apply false
 }
 
 val platform = project.getPlatform()

@@ -26,13 +26,13 @@ enum class Platform {
         }
 
     val id: String
-        get() = this.name.toLowerCase(Locale.ROOT)
+        get() = name.lowercase(Locale.ROOT)
 }
 
 fun Project.getPlatform(): Platform {
     val platform: String? = this.rootProject.findProperty("loom.platform")?.toString()
-    val name = this.name.toLowerCase(Locale.ROOT)
-    return when (platform?.toLowerCase(Locale.ROOT)) {
+    val name = this.name.lowercase(Locale.ROOT)
+    return when (platform?.lowercase(Locale.ROOT)) {
         "common" -> Platform.COMMON
         "fabric" -> Platform.FABRIC
         "neoforge" -> Platform.NEOFORGE
