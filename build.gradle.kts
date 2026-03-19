@@ -4,7 +4,7 @@ plugins {
 }
 
 group = "com.teamresourceful"
-version = "1.1.0"
+version = "2.0.0"
 
 java.withSourcesJar()
 
@@ -21,9 +21,8 @@ dependencies {
 
     compileOnly(libs.ktgradle)
 
-    api(libs.archloom)
-    api(libs.archplugin)
-    api(libs.shadow)
+    api(libs.loom)
+    api(libs.moddev)
 }
 
 publishing {

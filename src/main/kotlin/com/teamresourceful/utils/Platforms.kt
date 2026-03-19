@@ -1,6 +1,5 @@
 package com.teamresourceful.utils
 
-import dev.architectury.plugin.ModLoader
 import org.gradle.api.GradleException
 import org.gradle.api.Project
 import java.util.*
@@ -11,26 +10,12 @@ enum class Platform {
     NEOFORGE,
     ;
 
-    val modLoader: ModLoader?
-        get() = when (this) {
-            FABRIC -> ModLoader.FABRIC
-            NEOFORGE -> ModLoader.NEOFORGE
-            else -> null
-        }
-
-    val archDevName: String?
-        get() = when (this) {
-            FABRIC -> "Fabric"
-            NEOFORGE -> "NeoForge"
-            else -> null
-        }
-
     val id: String
         get() = name.lowercase(Locale.ROOT)
 }
 
-fun Project.getPlatform(): Platform {
-    val platform: String? = this.rootProject.findProperty("loom.platform")?.toString()
+fun Project.getPlatformOrNull(): Platform? {
+    val platform: String? = this.rootProject.findProperty("mc.platform")?.toString()
     val name = this.name.lowercase(Locale.ROOT)
     return when (platform?.lowercase(Locale.ROOT)) {
         "common" -> Platform.COMMON
@@ -40,7 +25,11 @@ fun Project.getPlatform(): Platform {
             "common" in name -> Platform.COMMON
             "fabric" in name -> Platform.FABRIC
             "neoforge" in name -> Platform.NEOFORGE
-            else -> throw GradleException("Could not infer platform from project name or `loom.platform` property for project '$name'.")
+            else -> null
         }
     }
+}
+
+fun Project.getPlatform(): Platform {
+    return this.getPlatformOrNull() ?: throw GradleException("Could not infer platform from project name or `mc.platform` property for project '$name'.")
 }
